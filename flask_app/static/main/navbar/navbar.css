@@ -1,0 +1,97 @@
+/* Styling for navigation bar */
+nav {
+    background-color: #303030;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    padding: 9px;
+}
+
+/* Styling for unordered list */
+ul {
+    color: #ffffff;
+    /* Text color */
+    list-style: none;
+    /* Remove default list styles */
+    align-items: center;
+    /* Align items at the center */
+}
+
+/* Hover effect for list items */
+ul :hover {
+    opacity: 0.8;
+    /* Reduce opacity on hover */
+}
+
+/* Hide desktop links by default in mobile */
+.desktopLinks {
+    display: none;
+}
+
+/* Styling for links (both desktop and mobile) */
+.links a,
+.mobSizeMenu a {
+    color: #e7a218;
+    text-decoration: none;
+    /* Remove underline */
+}
+
+@media screen and (min-width: 651px) {
+
+    /* Show desktop links for larger screens */
+    .desktopLinks {
+        display: flex;
+    }
+
+    /* Hide mobile menu on larger screens */
+    .mobMenu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    /* Hide the desktop links for mobile screens */
+    .desktopLinks {
+        display: none;
+    }
+
+    /* Display the mobile menu toggle */
+    .mobMenu {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Adjust the size of the menu bar */
+    .mobMenu img {
+        width: 30px;
+        /* Set the width of the menu bar */
+        height: auto;
+        /* Maintain aspect ratio */
+        cursor: pointer;
+    }
+
+    /* Mobile menu styling */
+    .mobSizeMenu {
+        background-color: #6B6A6A;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transition: all 0.5s ease-in-out;
+        z-index: 100;
+        padding-top: 20vh;
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Styling for mobile menu items */
+    .mobSizeMenu ul li {
+        font-size: 20px;
+    }
+}

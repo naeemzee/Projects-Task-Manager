@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Tasks Manager</title>
+  <!-- Include CSS files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/navbar/navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/chat/chat.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/board/board.css') }}">
+  {% block extracss %}{% endblock %}
+  <!-- Include JavaScript files -->
+  <script src="{{ url_for('static', filename='main/chat/chat.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='main/board/board.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='main/navbar/navbar.js') }}" defer></script>
+  {% block extrajs %}{% endblock %}
+</head>
+
+<body>
+  <article>
+    <nav>
+      <div>
+        <ul>
+          <li>Logged in as {{ user }}</li>
+        </ul>
+      </div>
+      <div class="desktopLinks">
+        <!-- Regular navigation links for desktop -->
+        <ul class="links">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+      <div class="mobMenu">
+        <!-- Menu bar icon to toggle mobile menu -->
+        <img src="{{ url_for('static', filename='main/images/menu-bar.png') }}" alt="Mobile menu bar" id="menuToggle" loading="lazy"/>
+        <!-- Mobile menu -->
+        <div class="mobSizeMenu" id="mobileMenu">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      {% block maincontent %}{% endblock %}
+    </main>
+  </article>
+</body>
+</html>
+
+
